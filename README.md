@@ -15,6 +15,20 @@ Missing:
 
 I probably won't bother beyond those 2 points.
 
+To build, start by doing a recursive clone
+```
+git clone --recursive https://github.com/paulfd/sfizz-vst3
+```
+It should pull everything.
+Then, do
+```
+cd sfizz-vst3
+mkdir build && cd build
+cmake ..
+cd ../sfizz-vst/build
+make sfizz-vst
+```
+
 This derivative work of sfizz is licensed under GPL v3 (https://www.gnu.org/licenses/gpl-3.0.txt) in accordance with Steinberg licensing.
 VST is a trademark of Steinberg Media.
 
