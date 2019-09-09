@@ -127,6 +127,7 @@ void Sfizz::dispatchParameterChanges(IParameterChanges* paramChanges)
             for (int32 pointIdx = 0; pointIdx < numPoints; pointIdx++) {
                 if (paramQueue->getPoint(numPoints - 1, sampleOffset, value) != kResultTrue) {
                     const auto ccValue = static_cast<uint8_t>(value * 127);
+                    DBG("VST CC " << +ccValue << " dispatched at delay " << sampleOffset);
                     synth.cc(sampleOffset, channel, ccIdx, ccValue);
                 }
             }
@@ -151,12 +152,16 @@ void Sfizz::dispatchEvents(IEventList* eventList)
         const auto velocity = static_cast<uint8_t>(event.noteOn.velocity * 127);
         switch (event.type) {
         case Event::kNoteOnEvent:
-            if (velocity > 0)
+            if (velocity > 0){
+                DBG("VST Note on " << +event.noteOn.pitch << " with velocity " << +velocity << " dispatched at delay " << event.sampleOffset);
                 synth.noteOn(event.sampleOffset, event.noteOn.channel + 1, event.noteOn.pitch, velocity);
+            }
             else // Seems that for some midi tracks note offs are actually note ons with zero velocity...
+                DBG("VST Fake note off " << +event.noteOn.pitch  << " dispatched at delay " << event.sampleOffset);
                 synth.noteOff(event.sampleOffset, event.noteOn.channel + 1, event.noteOn.pitch, 0);
             break;
         case Event::kNoteOffEvent:
+                DBG("VST Note off " << +event.noteOn.pitch  << " dispatched at delay " << event.sampleOffset);
             synth.noteOff(event.sampleOffset, event.noteOff.channel + 1, event.noteOff.pitch, 0);
             break;
         }
