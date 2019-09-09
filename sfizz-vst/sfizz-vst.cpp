@@ -74,7 +74,8 @@ tresult PLUGIN_API Sfizz::initialize(FUnknown* context)
     }
 
     // Load the file (temporary)
-    synth.loadSfzFile({ "/home/paul/Documents/Sfz Instruments/AVL_Drumkits_1.1-fix/Black_Pearl_5pc.sfz" });
+    synth.loadSfzFile({ "/home/paul/Documents/Sfz Instruments/SMDrums_Sforzando_1.2/Programs/SM_Drums_kit.sfz" });
+    // synth.loadSfzFile({ "/home/paul/Documents/Sfz Instruments/AVL_Drumkits_1.1-fix/Black_Pearl_5pc.sfz" });
 
     return result;
 }
