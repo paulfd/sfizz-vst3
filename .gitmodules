@@ -1,4 +1,0 @@
-[submodule "sfizz-vst/sfizz"]
-	path = sfizz-vst/sfizz
-	url = https://github.com/paulfd/sfizz
-	shallow = true
