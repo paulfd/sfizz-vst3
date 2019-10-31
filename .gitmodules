@@ -1,0 +1,3 @@
+[submodule "sfizz-vst/sfizz"]
+	path = sfizz-vst/sfizz
+	url = https://github.com/sfztools/sfizz.git

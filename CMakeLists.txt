@@ -2,8 +2,8 @@
 cmake_minimum_required (VERSION 3.4.3)
 
 # Sfizz plugin
+set(CMAKE_CXX_STANDARD 17)
 set(SMTG_MYPLUGINS_SRC_PATH "${CMAKE_CURRENT_SOURCE_DIR}/sfizz-vst" CACHE PATH "Here you can add Your VST3 plug-ins folder")
-
 #-------------------------------------------------------------------------------
 # Includes
 #-------------------------------------------------------------------------------

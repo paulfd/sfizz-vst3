@@ -192,7 +192,7 @@ tresult PLUGIN_API Sfizz::process(ProcessData& data)
     //---get audio buffers----------------
     auto numChannels = data.outputs[0].numChannels;
     void** out = getChannelBuffersPointer(processSetup, data.outputs[0]);
-    AudioSpan<float> outputs { { reinterpret_cast<float*>(out[0]), reinterpret_cast<float*>(out[1]) }, static_cast<unsigned>(data.numSamples) };
+    sfz::AudioSpan<float> outputs { { reinterpret_cast<float*>(out[0]), reinterpret_cast<float*>(out[1]) }, static_cast<unsigned>(data.numSamples) };
     // mark our outputs as not silent
     data.outputs[0].silenceFlags = 0;
     for (int32 i = 0; i < numChannels; i++)
